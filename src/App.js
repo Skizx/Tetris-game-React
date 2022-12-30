@@ -1,22 +1,13 @@
-import logo from './logo.svg';
+/* eslint-disable react/jsx-no-comment-textnodes */
 import './App.css';
+
+import Game from "./components/Game";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header /* Props Lignes&Colonnes envoyées au composant Game */>
+        <Game rows={20} columns={10} />
       </header>
     </div>
   );
