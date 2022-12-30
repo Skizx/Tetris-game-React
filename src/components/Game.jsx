@@ -1,15 +1,27 @@
 import React from 'react';
-import Menu from "./Menu"
+import Menu from "./Menu";
+import Tetris from "./Tetris";
+import useGameOver  from '../hooks/useGameOver';
 
+<div>{/* Récupération props rows&columns de mon App */}</div>
 const Game = ({ rows, columns }) => {
 
-    const start = () => { console.log("start")}
+    <div>{/* Création d'un custom Hook */}</div>
+    const [gameOver, setGameOver, resetGameOver] = useGameOver()
+
+    const start = () => resetGameOver();
 
     return (
         <>
         <div>{/*Props onClick avec objet Start envoyée au composant Menu */}</div>
+        <div className='Game'>
+        {gameOver ? (
         <Menu onClick={start} />
-            <div className='Game'>rows {rows}, columns {columns}</div>
+
+        ) : (
+            <Tetris rows={rows} columns={columns} setGameOver={setGameOver} />
+        )}
+            </div>
         </>
     );
 };
