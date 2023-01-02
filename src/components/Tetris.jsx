@@ -1,15 +1,18 @@
 import React from 'react';
 import Board from "./Board";
+import GameStats from './GameStats';
 import "./Tetris.css";
-
-import useBoard from '../hooks/useBoard';
+import  useGameStats  from "../hooks/useGameStats";
+import  useBoard  from '../hooks/useBoard';
 
 const Tetris = ({ rows, columns, setGameOver }) => {
-    // eslint-disable-next-line no-unused-vars
+    const [gameStats, addLinesCleared] = useGameStats();
     const [board, setBoard] = useBoard({ rows, columns})
     return (
-        
-        <Board board={board} />
+        <div className='Tetris'>
+            <Board board={board} />
+            <GameStats gameStats={gameStats} />
+        </div>
 
     )
 
